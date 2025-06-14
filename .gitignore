@@ -1,0 +1,62 @@
+# Binaire compilé
+outbil
+outbil.exe
+
+# Fichiers de base de données
+*.db
+*.sqlite
+*.sqlite3
+
+# Dossier des PDFs générés
+quotes/
+
+# Fichiers de configuration locaux
+.env
+.env.local
+config.local.json
+config.local.yaml
+
+# Logo et CGV (peuvent être spécifiques à chaque installation)
+logo.jpg
+logo.jpeg
+logo.png
+cgv.pdf
+
+# Fichiers temporaires
+*.temp
+*.tmp
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Go
+go.sum
+vendor/
+*.test
+*.out
+coverage.txt
+coverage.html
+
+# Dossiers de build
+dist/
+build/
+bin/
+
+# Fichiers de sauvegarde
+*.bak
+*.backup
+*.old
+
+# Fichiers de debug
+debug
+debug.test
+*.pprof
