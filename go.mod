@@ -13,11 +13,16 @@ require (
 )
 
 require (
+	github.com/boombuler/barcode v1.0.1 // indirect
 	github.com/chzyer/readline v1.5.1 // indirect
+	github.com/f-amaral/go-async v0.3.0 // indirect
+	github.com/google/uuid v1.5.0 // indirect
 	github.com/hhrutter/lzw v1.0.0 // indirect
 	github.com/hhrutter/pkcs7 v0.2.0 // indirect
 	github.com/hhrutter/tiff v1.0.2 // indirect
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
+	github.com/johnfercher/go-tree v1.0.5 // indirect
+	github.com/johnfercher/maroto/v2 v2.3.1 // indirect
 	github.com/mattn/go-colorable v0.1.14 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
 	github.com/mattn/go-runewidth v0.0.16 // indirect

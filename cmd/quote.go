@@ -713,7 +713,7 @@ var quotePDFCmd = &cobra.Command{
 		}
 
 		filename := fmt.Sprintf("quotes/%d_%02d_devis_%s.pdf", quote.CreatedAt.Year(), quote.CreatedAt.Month(), quote.QuoteNumber)
-		err = generatePDF(quote, company, filename)
+		err = generatePDFMaroto(quote, company, filename)
 		if err != nil {
 			utils.Error("Erreur lors de la génération du PDF: %v", err)
 			return

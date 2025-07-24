@@ -157,24 +157,27 @@ func generatePDF(quote *models.Quote, company *models.Company, filename string) 
 		lineHt := 5.0
 		lines := pdf.SplitLines([]byte(tr(item.Description)), 80)
 		cellHeight := float64(len(lines)) * lineHt
-		if cellHeight < 7 {
-			cellHeight = 7
+		if cellHeight < 8 {
+			cellHeight = 8
 		}
 
 		// Position actuelle
 		x, y := pdf.GetXY()
 
-		// Description avec retour à la ligne automatique
-		pdf.MultiCell(80, lineHt, tr(item.Description), "1", "L", false)
-
-		// Retour à la position pour les autres colonnes
-		pdf.SetXY(x+80, y)
+		// Dessiner d'abord toutes les cellules sans texte pour avoir les bordures alignées
+		pdf.CellFormat(80, cellHeight, "", "1", 0, "L", false, 0, "")
 		pdf.CellFormat(20, cellHeight, fmt.Sprintf("%.2f", item.Quantity), "1", 0, "C", false, 0, "")
 		pdf.CellFormat(30, cellHeight, fmt.Sprintf("%.2f", item.UnitPrice), "1", 0, "R", false, 0, "")
 		pdf.CellFormat(20, cellHeight, fmt.Sprintf("%.0f%%", item.TaxRate), "1", 0, "C", false, 0, "")
 		pdf.CellFormat(40, cellHeight, fmt.Sprintf("%.2f", item.Amount), "1", 0, "R", false, 0, "")
-
-		// Passer à la ligne suivante
+		
+		// Revenir à la position de départ pour écrire la description
+		pdf.SetXY(x, y)
+		
+		// Écrire la description dans la première cellule (sans bordure car déjà dessinée)
+		pdf.MultiCell(80, lineHt, tr(item.Description), "", "L", false)
+		
+		// Se positionner pour la ligne suivante
 		pdf.SetXY(x, y+cellHeight)
 	}
 
